@@ -1,6 +1,5 @@
 let players = [];
 
-// Function to add a player
 function addPlayer() {
     let nameInput = document.getElementById("playerName");
     let name = nameInput.value.trim();
@@ -14,7 +13,6 @@ function addPlayer() {
     }
 }
 
-// Function to update the list
 function updatePlayerList() {
     let playerList = document.getElementById("players");
     playerList.innerHTML = "";
@@ -32,20 +30,17 @@ function updatePlayerList() {
     });
 }
 
-// Function to remove a player
 function removePlayer(index) {
     players.splice(index, 1);
     updatePlayerList();
 }
 
-// Function to clear all players
 function clearPlayers() {
     players = [];
     updatePlayerList();
     document.getElementById("tournamentBracket").innerHTML = "";
 }
 
-// Function to start fancier countdown before generating the bracket
 function startCountdown() {
     if (players.length < 2) {
         alert("You need at least 2 players!");
@@ -54,22 +49,21 @@ function startCountdown() {
 
     let countdown = document.getElementById("countdown");
     let tournamentContainer = document.getElementById("tournamentContainer");
-    let resultButtons = document.getElementById("resultButtons");
 
-    tournamentContainer.classList.add("hidden"); // Hide everything except countdown
+    tournamentContainer.classList.add("hidden");
     countdown.style.display = "block";
 
-    let countdownNumbers = ["3", "2", "READY TO SUI?"];
+    let countdownNumbers = ["3", "2", "1", "SUI TIME!"];
     let countIndex = 0;
 
     countdown.innerHTML = countdownNumbers[countIndex];
-    countdown.style.animation = "fadeInOut 1s ease-in-out";
+    countdown.style.animation = "zoomFade 1s ease-in-out";
 
     let countdownInterval = setInterval(() => {
         countIndex++;
         if (countIndex < countdownNumbers.length) {
             countdown.innerHTML = countdownNumbers[countIndex];
-            countdown.style.animation = "fadeInOut 1s ease-in-out";
+            countdown.style.animation = "zoomFade 1s ease-in-out";
         } else {
             clearInterval(countdownInterval);
             countdown.style.display = "none";
@@ -79,10 +73,9 @@ function startCountdown() {
     }, 1000);
 }
 
-// Function to generate the bracket with "Pick Your Partner" for odd players
 function generateBracket() {
     let shuffledPlayers = [...players].sort(() => Math.random() - 0.5);
-    let bracketHTML = `<h2>Tournament Bracket</h2><div class="bracket-container">`;
+    let bracketHTML = `<h2 class="neon-glow">Tournament Bracket</h2><div class="bracket-container">`;
 
     for (let i = 0; i < shuffledPlayers.length; i += 2) {
         let player1 = shuffledPlayers[i];
@@ -92,24 +85,33 @@ function generateBracket() {
     }
 
     bracketHTML += `</div>`;
+    bracketHTML += `
+        <div id="resultButtons">
+            <button onclick="restartTournament()" class="button neon-button">Restart</button>
+            <button onclick="addMorePlayers()" class="button neon-button">Add More Players</button>
+            <a href="index.html" class="button neon-button">Back to Home</a>
+        </div>`;
+    
     document.getElementById("tournamentBracket").innerHTML = bracketHTML;
     document.getElementById("tournamentBracket").classList.add("bracket-show");
-
-    setTimeout(() => {
-        document.getElementById("resultButtons").style.display = "block";
-    }, 500);
 }
 
-// Function to start confetti effect
 function startConfetti() {
     confetti({
-        particleCount: 200,
-        spread: 180,
-        origin: { y: 0.6 }
+        particleCount: 300,
+        spread: 360,
+        origin: { y: 0.5 },
+        colors: ['#ff00cc', '#00ffcc', '#ffcc00'],
+        scalar: 1.2
     });
 }
 
-// Function to restart the tournament
 function restartTournament() {
-    location.reload(); // Refreshes the page to reset everything
+    document.getElementById("tournamentBracket").innerHTML = "";
+    document.getElementById("tournamentContainer").classList.remove("hidden");
+}
+
+function addMorePlayers() {
+    document.getElementById("tournamentBracket").innerHTML = "";
+    document.getElementById("tournamentContainer").classList.remove("hidden");
 }

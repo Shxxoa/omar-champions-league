@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOURNAMENT</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <script defer src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.2"></script> <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.2"></script>
 </head>
 <body>
-    <header id="tournamentContainer">
-        <h1 class="animate-text">HASOON TOURNAMENT</h1>
+    <header id="tournamentContainer" class="hero">
+        <h1 class="animate-text neon-glow">HASOON TOURNAMENT</h1>
 
         <div class="input-section">
-            <input type="text" id="playerName" placeholder="Enter a player's name">
+            <input type="text" id="playerName" placeholder="Enter Player Name">
             <button class="add-button" onclick="addPlayer()">Add Player</button>
             <button class="clear-button" onclick="clearPlayers()">Clear Players</button>
         </div>
@@ -24,21 +25,11 @@
         </div>
 
         <button class="tournament-button" onclick="startCountdown()">Create Tournament</button>
-
-        <!-- Back to Main Button -->
-        <a href="index.html" class="button">Back to Main</a>
+        <a href="index.html" class="button neon-button">Back to Main</a>
+        <div class="particle-bg"></div>
     </header>
 
-    <!-- Countdown Effect -->
     <div id="countdown"></div>
-
-    <!-- Tournament Bracket -->
     <div id="tournamentBracket"></div>
-
-    <!-- Buttons to Show After Tournament -->
-    <div id="resultButtons" style="display: none;">
-        <a href="index.html" class="button">Back to Home</a>
-        <button onclick="restartTournament()" class="button">Restart</button>
-    </div>
 </body>
 </html>
