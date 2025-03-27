@@ -11,12 +11,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #1a0933, #3b1e66, #2e1a47);
     color: #fff;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    padding: 10px;
 }
 
 /* Particle Background */
@@ -42,6 +43,8 @@ body {
 .hero {
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: 800px;
 }
 
 /* Hidden Class */
@@ -147,7 +150,7 @@ body {
 
 /* Tournament Bracket */
 #tournamentBracket {
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 26px;
     color: #fff;
     display: flex;
@@ -156,6 +159,7 @@ body {
     opacity: 0;
     transform: scale(0.8);
     transition: all 1.2s ease-in-out;
+    width: 100%;
 }
 
 .bracket-show {
@@ -165,14 +169,16 @@ body {
 
 .bracket-container {
     background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
+    padding: 15px;
     border-radius: 15px;
     box-shadow: 0 0 25px rgba(0, 255, 204, 0.5);
+    width: 100%;
+    max-width: 600px;
 }
 
 .match {
-    margin: 15px 0;
-    padding: 10px 20px;
+    margin: 10px 0;
+    padding: 10px 15px;
     background: linear-gradient(45deg, #ff00cc, #00ffcc);
     border-radius: 10px;
     font-weight: bold;
@@ -181,21 +187,27 @@ body {
 
 /* Result Buttons */
 #resultButtons {
-    margin-top: 40px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 /* Input Section */
 .input-section {
-    margin: 25px;
+    margin: 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .input-section input {
-    padding: 15px;
-    font-size: 22px;
-    width: 280px;
+    padding: 12px;
+    font-size: 20px;
+    width: 100%;
+    max-width: 280px;
     border-radius: 50px;
     border: 3px solid #00ffcc;
     background: rgba(255, 255, 255, 0.05);
@@ -212,10 +224,11 @@ body {
 
 /* Fancy Buttons */
 .input-section button, .tournament-button {
-    padding: 15px 30px;
-    font-size: 22px;
-    margin: 10px;
-    width: 220px;
+    padding: 12px 25px;
+    font-size: 20px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 220px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -264,10 +277,15 @@ body {
     text-shadow: 0 0 15px rgba(255, 0, 204, 0.7);
 }
 
+#players {
+    width: 100%;
+    max-width: 600px;
+}
+
 #players li {
     list-style: none;
-    padding: 10px 20px;
-    margin: 5px;
+    padding: 10px 15px;
+    margin: 5px 0;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     display: flex;
@@ -294,4 +312,92 @@ body {
 #players li button:hover {
     background: #ffcc00;
     transform: scale(1.2);
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 600px) {
+    /* Title */
+    .neon-glow {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+
+    /* Buttons */
+    .neon-button {
+        font-size: 18px;
+        padding: 12px 25px;
+        margin: 10px;
+    }
+
+    /* Countdown */
+    #countdown {
+        font-size: 80px;
+    }
+
+    /* Tournament Bracket */
+    #tournamentBracket {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .bracket-container {
+        padding: 10px;
+    }
+
+    .match {
+        padding: 8px 12px;
+        font-size: 18px;
+    }
+
+    /* Input Section */
+    .input-section input {
+        font-size: 16px;
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    .input-section button, .tournament-button {
+        font-size: 16px;
+        padding: 10px 20px;
+        max-width: 90%;
+    }
+
+    /* Player List */
+    .players-list h2 {
+        font-size: 22px;
+    }
+
+    #players li {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    #players li button {
+        padding: 4px 8px;
+    }
+
+    /* Result Buttons */
+    #resultButtons {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .neon-glow {
+        font-size: 28px;
+    }
+
+    .neon-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    #countdown {
+        font-size: 60px;
+    }
+
+    .match {
+        font-size: 16px;
+    }
 }
