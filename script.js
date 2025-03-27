@@ -53,17 +53,17 @@ function startCountdown() {
     tournamentContainer.classList.add("hidden");
     countdown.style.display = "block";
 
-    let countdownNumbers = ["3", "2", "1", "SUI TIME!"];
+    let countdownNumbers = ["3", "2", "1", "KICK OFF!"];
     let countIndex = 0;
 
     countdown.innerHTML = countdownNumbers[countIndex];
-    countdown.style.animation = "zoomFade 1s ease-in-out";
+    countdown.style.animation = "zoomFade 1s ease-in-out, soccerSpin 1s ease-in-out";
 
     let countdownInterval = setInterval(() => {
         countIndex++;
         if (countIndex < countdownNumbers.length) {
             countdown.innerHTML = countdownNumbers[countIndex];
-            countdown.style.animation = "zoomFade 1s ease-in-out";
+            countdown.style.animation = "zoomFade 1s ease-in-out, soccerSpin 1s ease-in-out";
         } else {
             clearInterval(countdownInterval);
             countdown.style.display = "none";
@@ -87,9 +87,9 @@ function generateBracket() {
     bracketHTML += `</div>`;
     bracketHTML += `
         <div id="resultButtons">
-            <button onclick="restartTournament()" class="button neon-button">Restart</button>
-            <button onclick="addMorePlayers()" class="button neon-button">Add More Players</button>
-            <a href="index.html" class="button neon-button">Back to Home</a>
+            <button onclick="restartTournament()" class="button neon-button slide-in-left">Restart</button>
+            <button onclick="addMorePlayers()" class="button neon-button slide-in-right">Add More Players</button>
+            <a href="index.html" class="button neon-button slide-in-left">Back to Home</a>
         </div>`;
     
     document.getElementById("tournamentBracket").innerHTML = bracketHTML;
@@ -101,7 +101,7 @@ function startConfetti() {
         particleCount: 300,
         spread: 360,
         origin: { y: 0.5 },
-        colors: ['#ff00cc', '#00ffcc', '#ffcc00'],
+        colors: ['#ffd700', '#00b7eb', '#ffffff'],
         scalar: 1.2
     });
 }

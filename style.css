@@ -6,13 +6,13 @@
     font-family: 'Orbitron', sans-serif;
 }
 
-/* Full-screen background with particle effect */
+/* Full-screen background with soccer pitch */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #1a0933, #3b1e66, #2e1a47);
+    background: linear-gradient(135deg, #004d00, #008000, #003300);
     color: #fff;
     text-align: center;
     position: relative;
@@ -20,23 +20,39 @@ body {
     padding: 10px;
 }
 
-/* Particle Background */
-.particle-bg {
+/* Soccer Pitch Background */
+.pitch-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"%3E%3Ccircle fill="rgba(255,255,255,0.1)" cx="10" cy="10" r="2"/%3E%3Ccircle fill="rgba(255,255,255,0.1)" cx="50" cy="60" r="3"/%3E%3Ccircle fill="rgba(255,255,255,0.1)" cx="150" cy="30" r="2"/%3E%3Ccircle fill="rgba(255,255,255,0.1)" cx="90" cy="120" r="4"/%3E%3C/svg%3E');
-    animation: particleFloat 15s infinite linear;
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600"%3E%3Crect fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="4" x="20" y="20" width="360" height="560"/%3E%3Cline stroke="rgba(255,255,255,0.2)" stroke-width="4" x1="200" y1="20" x2="200" y2="580"/%3E%3Ccircle fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="4" cx="200" cy="300" r="50"/%3E%3C/svg%3E');
     z-index: -1;
+    opacity: 0.8;
 }
 
-/* Particle Animation */
-@keyframes particleFloat {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
+/* Soccer Ball Animation */
+.soccer-ball {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #fff 40%, #000 45%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    z-index: 0;
+}
+
+.animate-ball {
+    animation: bounceBall 5s infinite ease-in-out;
+}
+
+@keyframes bounceBall {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(100px, -50px) rotate(360deg); }
+    50% { transform: translate(200px, 0) rotate(720deg); }
+    75% { transform: translate(100px, 50px) rotate(1080deg); }
+    100% { transform: translate(0, 0) rotate(1440deg); }
 }
 
 /* Hero Section */
@@ -45,6 +61,9 @@ body {
     z-index: 1;
     width: 100%;
     max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Hidden Class */
@@ -52,41 +71,51 @@ body {
     display: none !important;
 }
 
-/* Neon Glow Title */
+/* Neon Glow Title with Trophy Effect */
 .neon-glow {
     font-size: 60px;
     font-weight: 700;
     text-transform: uppercase;
-    background: linear-gradient(45deg, #ff00cc, #00ffcc, #ffcc00);
+    background: linear-gradient(45deg, #ffd700, #00b7eb, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 15px rgba(255, 0, 204, 0.8), 0 0 30px rgba(0, 255, 204, 0.6);
-    animation: neonPulse 1.5s infinite alternate;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(0, 183, 235, 0.6);
+    animation: neonPulse 1.5s infinite alternate, trophyShake 3s infinite;
+    text-align: center;
 }
 
-/* Neon Pulse Animation */
 @keyframes neonPulse {
-    0% { text-shadow: 0 0 10px rgba(255, 0, 204, 0.8), 0 0 20px rgba(0, 255, 204, 0.6); }
-    100% { text-shadow: 0 0 20px rgba(255, 0, 204, 1), 0 0 40px rgba(0, 255, 204, 0.9); }
+    0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(0, 183, 235, 0.6); }
+    100% { text-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 40px rgba(0, 183, 235, 0.9); }
 }
 
-/* Fancy Neon Buttons */
+@keyframes trophyShake {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(5deg); }
+    20% { transform: rotate(-5deg); }
+    30% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Fancy Neon Buttons with Slide Animation */
 .neon-button {
     display: inline-block;
     text-decoration: none;
     font-size: 24px;
-    padding: 15px 40px;
+    padding: 15px 30px;
     color: #fff;
-    background: linear-gradient(90deg, #ff00cc, #00ffcc);
-    border: 2px solid #ff00cc;
+    background: linear-gradient(90deg, #00b7eb, #ffd700);
+    border: 2px solid #00b7eb;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.4s ease;
-    box-shadow: 0 0 20px rgba(255, 0, 204, 0.7);
+    box-shadow: 0 0 20px rgba(0, 183, 235, 0.7);
     letter-spacing: 3px;
     margin: 15px;
     position: relative;
     overflow: hidden;
+    width: 220px; /* Increased width to fit "TOURNAMENT" */
+    text-align: center;
 }
 
 .neon-button::after {
@@ -107,17 +136,40 @@ body {
 }
 
 .neon-button:hover {
-    background: linear-gradient(90deg, #00ffcc, #ff00cc);
-    transform: scale(1.15) rotate(2deg);
-    box-shadow: 0 0 30px rgba(0, 255, 204, 0.9);
+    background: linear-gradient(90deg, #ffd700, #00b7eb);
+    transform: scale(1.15);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
 }
 
 .neon-button:active {
     transform: scale(0.95);
 }
 
+/* Slide Animations for Buttons */
+.slide-in-left {
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 1s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
 /* Pulse Container for Buttons */
 .pulse-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     animation: pulseGlow 2s infinite;
 }
 
@@ -127,25 +179,29 @@ body {
     100% { transform: scale(1); }
 }
 
-/* Countdown */
+/* Countdown with Soccer Flair */
 #countdown {
     display: none;
     font-size: 140px;
     font-weight: 700;
-    color: #ffcc00;
+    color: #ffd700;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-shadow: 0 0 20px #ffcc00;
-    animation: zoomFade 1s ease-in-out;
+    text-shadow: 0 0 20px #ffd700;
+    animation: zoomFade 1s ease-in-out, soccerSpin 1s ease-in-out;
 }
 
-/* Zoom Fade Animation */
 @keyframes zoomFade {
     0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
     50% { opacity: 1; transform: translate(-50%, -50%) scale(1.4); }
     100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes soccerSpin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* Tournament Bracket */
@@ -168,30 +224,37 @@ body {
 }
 
 .bracket-container {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.1);
     padding: 15px;
     border-radius: 15px;
-    box-shadow: 0 0 25px rgba(0, 255, 204, 0.5);
+    box-shadow: 0 0 25px rgba(0, 183, 235, 0.5);
     width: 100%;
     max-width: 600px;
+    animation: fadeInBracket 1s ease-in-out;
 }
 
 .match {
     margin: 10px 0;
     padding: 10px 15px;
-    background: linear-gradient(45deg, #ff00cc, #00ffcc);
+    background: linear-gradient(45deg, #00b7eb, #ffd700);
     border-radius: 10px;
     font-weight: bold;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes fadeInBracket {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 /* Result Buttons */
 #resultButtons {
     margin-top: 20px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 /* Input Section */
@@ -209,7 +272,7 @@ body {
     width: 100%;
     max-width: 280px;
     border-radius: 50px;
-    border: 3px solid #00ffcc;
+    border: 3px solid #00b7eb;
     background: rgba(255, 255, 255, 0.05);
     color: #fff;
     text-align: center;
@@ -217,8 +280,8 @@ body {
 }
 
 .input-section input:focus {
-    border-color: #ff00cc;
-    box-shadow: 0 0 15px rgba(255, 0, 204, 0.9);
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
     background: rgba(255, 255, 255, 0.1);
 }
 
@@ -238,43 +301,50 @@ body {
 }
 
 .add-button {
-    background: linear-gradient(90deg, #00ffcc, #ff00cc);
-    box-shadow: 0 0 20px rgba(0, 255, 204, 0.7);
+    background: linear-gradient(90deg, #00b7eb, #ffd700);
+    box-shadow: 0 0 20px rgba(0, 183, 235, 0.7);
 }
 
 .add-button:hover {
-    background: linear-gradient(90deg, #ff00cc, #00ffcc);
-    transform: scale(1.1) rotate(3deg);
-    box-shadow: 0 0 30px rgba(255, 0, 204, 0.9);
+    background: linear-gradient(90deg, #ffd700, #00b7eb);
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
 }
 
 .clear-button {
-    background: linear-gradient(90deg, #ff4b2b, #ffcc00);
-    box-shadow: 0 0 20px rgba(255, 75, 43, 0.7);
+    background: linear-gradient(90deg, #ff4500, #ffd700);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.7);
 }
 
 .clear-button:hover {
-    background: linear-gradient(90deg, #ffcc00, #ff4b2b);
-    transform: scale(1.1) rotate(-3deg);
-    box-shadow: 0 0 30px rgba(255, 75, 43, 0.9);
+    background: linear-gradient(90deg, #ffd700, #ff4500);
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
 }
 
 .tournament-button {
-    background: linear-gradient(90deg, #ff00cc, #00ffcc);
-    box-shadow: 0 0 20px rgba(255, 0, 204, 0.7);
+    background: linear-gradient(90deg, #00b7eb, #ffd700);
+    box-shadow: 0 0 20px rgba(0, 183, 235, 0.7);
+    width: 220px; /* Match other buttons */
 }
 
 .tournament-button:hover {
-    background: linear-gradient(90deg, #00ffcc, #ff00cc);
+    background: linear-gradient(90deg, #ffd700, #00b7eb);
     transform: scale(1.15);
-    box-shadow: 0 0 30px rgba(0, 255, 204, 0.9);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
 }
 
 /* Player List */
+.players-list {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
 .players-list h2 {
     font-size: 28px;
     margin-bottom: 10px;
-    text-shadow: 0 0 15px rgba(255, 0, 204, 0.7);
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
 }
 
 #players {
@@ -300,7 +370,7 @@ body {
 }
 
 #players li button {
-    background: #ff4b2b;
+    background: #ff4500;
     border: none;
     padding: 5px 10px;
     border-radius: 50%;
@@ -310,31 +380,47 @@ body {
 }
 
 #players li button:hover {
-    background: #ffcc00;
+    background: #ffd700;
     transform: scale(1.2);
+}
+
+/* Tournament Page Button Container */
+.tournament-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
 }
 
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 600px) {
-    /* Title */
     .neon-glow {
         font-size: 36px;
         line-height: 1.2;
     }
 
-    /* Buttons */
     .neon-button {
         font-size: 18px;
         padding: 12px 25px;
         margin: 10px;
+        width: 180px;
     }
 
-    /* Countdown */
+    .pulse-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tournament-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     #countdown {
         font-size: 80px;
     }
 
-    /* Tournament Bracket */
     #tournamentBracket {
         font-size: 20px;
         margin-top: 10px;
@@ -349,7 +435,6 @@ body {
         font-size: 18px;
     }
 
-    /* Input Section */
     .input-section input {
         font-size: 16px;
         padding: 10px;
@@ -362,7 +447,6 @@ body {
         max-width: 90%;
     }
 
-    /* Player List */
     .players-list h2 {
         font-size: 22px;
     }
@@ -376,10 +460,14 @@ body {
         padding: 4px 8px;
     }
 
-    /* Result Buttons */
     #resultButtons {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
+    }
+
+    .soccer-ball {
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -391,6 +479,7 @@ body {
     .neon-button {
         font-size: 16px;
         padding: 10px 20px;
+        width: 160px;
     }
 
     #countdown {
@@ -399,5 +488,10 @@ body {
 
     .match {
         font-size: 16px;
+    }
+
+    .soccer-ball {
+        width: 30px;
+        height: 30px;
     }
 }
