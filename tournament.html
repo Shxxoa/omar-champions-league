@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOURNAMENT</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.2"></script> <!-- Confetti Library -->
+</head>
+<body>
+    <header id="tournamentContainer">
+        <h1 class="animate-text">TOURNAMENT PAGE</h1>
+
+        <div class="input-section">
+            <input type="text" id="playerName" placeholder="Enter a player's name">
+            <button class="add-button" onclick="addPlayer()">Add Player</button>
+            <button class="clear-button" onclick="clearPlayers()">Clear Players</button>
+        </div>
+
+        <div class="players-list">
+            <h2>Players:</h2>
+            <ul id="players"></ul>
+        </div>
+
+        <button class="tournament-button" onclick="startCountdown()">Create Tournament</button>
+
+        <!-- Back to Main Button -->
+        <a href="index.html" class="button">Back to Main</a>
+    </header>
+
+    <!-- Countdown Effect -->
+    <div id="countdown"></div>
+
+    <!-- Tournament Bracket -->
+    <div id="tournamentBracket"></div>
+
+    <!-- Buttons to Show After Tournament -->
+    <div id="resultButtons" style="display: none;">
+        <a href="index.html" class="button">Back to Home</a>
+        <button onclick="restartTournament()" class="button">Restart</button>
+    </div>
+</body>
+</html>
