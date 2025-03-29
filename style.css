@@ -64,6 +64,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 /* Hidden Class */
@@ -82,6 +84,7 @@ body {
     text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(0, 183, 235, 0.6);
     animation: neonPulse 1.5s infinite alternate, trophyShake 3s infinite;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 @keyframes neonPulse {
@@ -111,10 +114,10 @@ body {
     transition: all 0.4s ease;
     box-shadow: 0 0 20px rgba(0, 183, 235, 0.7);
     letter-spacing: 3px;
-    margin: 15px;
+    margin: 10px;
     position: relative;
     overflow: hidden;
-    width: 220px; /* Increased width to fit "TOURNAMENT" */
+    width: 220px;
     text-align: center;
 }
 
@@ -259,11 +262,12 @@ body {
 
 /* Input Section */
 .input-section {
-    margin: 20px 0;
+    margin: 10px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    gap: 10px;
 }
 
 .input-section input {
@@ -285,11 +289,21 @@ body {
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* Input Section Buttons Container */
+.input-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
 /* Fancy Buttons */
 .input-section button, .tournament-button {
     padding: 12px 25px;
     font-size: 20px;
-    margin: 10px 0;
+    margin: 0;
     width: 100%;
     max-width: 220px;
     border: none;
@@ -325,7 +339,7 @@ body {
 .tournament-button {
     background: linear-gradient(90deg, #00b7eb, #ffd700);
     box-shadow: 0 0 20px rgba(0, 183, 235, 0.7);
-    width: 220px; /* Match other buttons */
+    width: 220px;
 }
 
 .tournament-button:hover {
@@ -339,6 +353,7 @@ body {
     width: 100%;
     max-width: 600px;
     text-align: center;
+    margin: 20px 0;
 }
 
 .players-list h2 {
@@ -398,6 +413,7 @@ body {
     .neon-glow {
         font-size: 36px;
         line-height: 1.2;
+        margin-bottom: 15px;
     }
 
     .neon-button {
@@ -413,6 +429,11 @@ body {
     }
 
     .tournament-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .input-buttons {
         flex-direction: column;
         gap: 10px;
     }
@@ -435,6 +456,10 @@ body {
         font-size: 18px;
     }
 
+    .input-section {
+        margin: 10px 0;
+    }
+
     .input-section input {
         font-size: 16px;
         padding: 10px;
@@ -445,6 +470,10 @@ body {
         font-size: 16px;
         padding: 10px 20px;
         max-width: 90%;
+    }
+
+    .players-list {
+        margin: 15px 0;
     }
 
     .players-list h2 {
@@ -474,6 +503,7 @@ body {
 @media (max-width: 400px) {
     .neon-glow {
         font-size: 28px;
+        margin-bottom: 10px;
     }
 
     .neon-button {
