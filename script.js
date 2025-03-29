@@ -102,7 +102,7 @@ function generateBracket() {
         "MUSTAFA ASSI": ["MUSTAFA", "AHMED", "ALI", "CAPTAIN"],
         "ALI": ["MUSTAFA ASSI", "MUSTAFA", "AHMED", "CAPTAIN"],
         "HASAN": ["TAHA", "OSAMA", "YOUSF"],
-        "TAHA": ["HASAN", "ALI", "CAPTAIN", "MUSTAFA","AHMED"]
+        "TAHA": ["HASAN", "MUSTAFA ASSI", "CAPTAIN", "MUSTAFA","AHMED"]
     };
 
     let availablePlayers = [...players];
