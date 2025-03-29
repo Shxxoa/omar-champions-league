@@ -82,7 +82,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(0, 183, 235, 0.6);
-    animation: neonPulse 1.5s infinite alternate, trophyShake 3s infinite;
+    animation: neon [neonPulse](https://github.com/neonPulse) 1.5s infinite alternate, trophyShake 3s infinite;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -289,6 +289,39 @@ body {
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* Player Dropdown */
+.player-select {
+    padding: 12px;
+    font-size: 20px;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 50px;
+    border: 3px solid #00b7eb;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+.player-select:hover {
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
+}
+
+.player-select:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+}
+
 /* Input Section Buttons Container */
 .input-buttons {
     display: flex;
@@ -466,6 +499,12 @@ body {
         max-width: 90%;
     }
 
+    .player-select {
+        font-size: 16px;
+        padding: 10px;
+        max-width: 90%;
+    }
+
     .input-section button, .tournament-button {
         font-size: 16px;
         padding: 10px 20px;
@@ -523,5 +562,10 @@ body {
     .soccer-ball {
         width: 30px;
         height: 30px;
+    }
+
+    .player-select {
+        font-size: 14px;
+        padding: 8px;
     }
 }
