@@ -174,7 +174,7 @@ function generateBracket() {
     // Generate HTML
     let bracketHTML = `<h2 class="neon-glow">Tournament Bracket</h2><div class="bracket-container">`;
     matches.forEach(match => {
-        bracketHTML += `<div class="match">${match[0]} 🆚 ${match[1]}</div>`;
+        bracketHTML += `<div class="match">${match[0]} with ${match[1]}</div>`;
     });
 
     bracketHTML += `</div>`;
